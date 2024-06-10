@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+        <!-- conditional rendering -->
+        <div v-if="showBook"> 
+            <P>The book {{title}} is written by {{author}} and is read by {{readers}}</P>
+            <button v-on:click="readers++">Read</button> 
+            <button v-on:click="readers--">UnRead</button>
+            <!-- "readers" is property -->
+            <div @click="title = `different title name`">Change book titile</div>
+            <div @click="changeAuthor">nAuthor</div>
+        </div>
+        <button @click="toggleBooks">
+            <span v-if="showBook">Hide books</span>
+            <!-- <span v-if="!showBook">Show books</span> -->
+            <span v-else>Show books</span>
+        </button>
+        <div v-show ="showBook">currently showing ...</div>
+        <!-- v-show uses display:none  -->
+
+        
+        <!--  <div v-if="true">
+            <P>The book {{title}} is written by {{author}} and is read by {{readers}}</P>
+            <button v-on:click="readers++">Read</button>  
+            <button v-on:click="readers--">UnRead</button> -->
+            <!-- "readers" is property -->
+            
+            <!-- <div @click="title = `different title name`">Change book titile</div>
+            <div @click="changeAuthor">nAuthor</div>
+        </div> -->
+    </div>
+    <script>
+    const app = Vue.createApp({
+        data() {
+            return{
+                showBook:true,
+                title: 'Subtel art',
+                author: 'sname',
+                readers: 0
+            }
+        },
+        methods: {
+            changeAuthor() {
+                this.author = 'new-name'
+            },
+            toggleBooks(){
+                this.showBook = !this.showBook
+            }
+        }
+        // template: '<h2>tmeplate form vue</h2>'
+    })
+    app.mount('#app') //tells where in DOM to mount this app 
+    </script>
+</body>
+</html> 
