@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel ="stylesheet" href = "new_home.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,11 +18,7 @@
             <div @click="title = `different title name`">Change book titile</div>
             <div @click="changeAuthor">nAuthor</div>
         </div>
-        <button @click="toggleBooks">
-            <span v-if="showBook">Hide books</span>
-            <!-- <span v-if="!showBook">Show books</span> -->
-            <span v-else>Show books</span>
-        </button>
+        
         <div v-show ="showBook">currently showing ...</div>
         <!-- v-show uses display:none  -->
 
@@ -35,7 +32,20 @@
             <!-- <div @click="title = `different title name`">Change book titile</div>
             <div @click="changeAuthor">nAuthor</div>
         </div> -->
+        <div id="showhide">
+            <button  style="z-index:1000;"@click="toggleBooks">
+                <span v-if="showBook">Hide books</span>
+                <!-- <span v-if="!showBook">Show books</span> -->
+                <span v-else>Show books</span>
+            </button>
+        </div>
     </div>
+
+    
+    <main>
+        <h1>Karnav APP</h1>
+    </main>
+
     <script>
     const app = Vue.createApp({
         data() {
